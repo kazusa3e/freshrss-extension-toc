@@ -1,0 +1,112 @@
+/* ── TOC Panel ─────────────────────────────────── */
+#toc-panel {
+	position: fixed;
+	right: 0;
+	top: 80px;
+	width: 260px;
+	max-height: calc(100vh - 100px);
+	overflow-y: auto;
+	background: var(--frss-background-color-alt, #f8f9fa);
+	border-left: 1px solid var(--frss-border-color, #ddd);
+	box-shadow: -2px 0 6px rgba(0, 0, 0, 0.08);
+	padding: 12px 0;
+	z-index: 100;
+	font-size: 13px;
+	line-height: 1.4;
+	transition: transform 0.25s ease;
+}
+
+#toc-panel.collapsed {
+	transform: translateX(100%);
+}
+
+/* ── Toggle Button ────────────────────────────── */
+#toc-toggle {
+	position: absolute;
+	left: -28px;
+	top: 12px;
+	width: 28px;
+	height: 28px;
+	background: var(--frss-background-color-alt, #f8f9fa);
+	border: 1px solid var(--frss-border-color, #ddd);
+	border-right: none;
+	border-radius: 4px 0 0 4px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	color: var(--frss-color, #555);
+	padding: 0;
+}
+
+#toc-toggle:hover {
+	background: var(--frss-background-color-hover, #e9ecef);
+}
+
+/* ── Heading & List ───────────────────────────── */
+#toc-panel .toc-title {
+	font-weight: 600;
+	font-size: 13px;
+	padding: 0 14px 8px;
+	margin: 0;
+	color: var(--frss-color, #333);
+	border-bottom: 1px solid var(--frss-border-color, #eee);
+}
+
+#toc-panel ol {
+	list-style: none;
+	margin: 0;
+	padding: 6px 0 0;
+}
+
+#toc-panel li {
+	margin: 0;
+}
+
+#toc-panel li a {
+	display: block;
+	padding: 4px 14px;
+	color: var(--frss-color, #444);
+	text-decoration: none;
+	border-left: 3px solid transparent;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#toc-panel li a:hover {
+	background: var(--frss-background-color-hover, #e9ecef);
+}
+
+/* ── Indent by heading level ──────────────────── */
+#toc-panel li[data-level="2"] a { padding-left: 14px; }
+#toc-panel li[data-level="3"] a { padding-left: 28px; }
+#toc-panel li[data-level="4"] a { padding-left: 42px; }
+#toc-panel li[data-level="5"] a { padding-left: 56px; }
+#toc-panel li[data-level="6"] a { padding-left: 70px; }
+
+/* ── Active heading highlight ─────────────────── */
+#toc-panel li.toc-active > a {
+	border-left-color: var(--frss-accent-color, #0062cc);
+	color: var(--frss-accent-color, #0062cc);
+	font-weight: 600;
+	background: var(--frss-background-color-hover, rgba(0, 98, 204, 0.06));
+}
+
+/* ── Scrollbar ────────────────────────────────── */
+#toc-panel::-webkit-scrollbar {
+	width: 4px;
+}
+
+#toc-panel::-webkit-scrollbar-thumb {
+	background: var(--frss-border-color, #ccc);
+	border-radius: 2px;
+}
+
+/* ── Responsive: hide on narrow screens ───────── */
+@media (max-width: 1100px) {
+	#toc-panel {
+		display: none;
+	}
+}

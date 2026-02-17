@@ -1,0 +1,8 @@
+{
+	"name": "TableOfContents",
+	"author": "kazusa",
+	"description": "Displays a fixed Table of Contents panel on the right side for easy navigation through long articles.",
+	"version": "0.1.0",
+	"entrypoint": "TableOfContents",
+	"type": "user"
+}
